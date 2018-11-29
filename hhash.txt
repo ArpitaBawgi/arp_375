@@ -1,0 +1,9 @@
+https://www.javaworld.com/article/2077346/core-java/hashtables.html
+
+https://www.javaworld.com/article/3305792/learn-java/java-challengers-4-comparing-java-objects-with-equals-and-hashcode.html
+
+https://www.javatpoint.com/java-hashmap
+
+https://www.javatpoint.com/difference-between-hashmap-and-hashtable
+
+https://www.geeksforgeeks.org/treeset-in-java-with-examples/
