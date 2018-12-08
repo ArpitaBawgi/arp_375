@@ -1,0 +1,227 @@
+ <html>
+<head>
+ <script type="text/javascript">
+var shoppingCart = [];
+
+    
+    function displayShoppingCart(){
+        var orderedProductsTblBody=document.getElementById("orderedProductsTblBody");
+        
+        while(orderedProductsTblBody.rows.length>0) {
+            orderedProductsTblBody.deleteRow(0);
+        }
+
+        
+        var cart_total_price=0;
+        
+        for(var product in shoppingCart){
+             
+            var row=orderedProductsTblBody.insertRow();
+           
+            var cellName = row.insertCell(0);
+            var cellDescription = row.insertCell(1);
+            var cellPrice = row.insertCell(2);
+            cellPrice.align="right";
+            
+            cellName.innerHTML = shoppingCart[product].Name;
+            cellDescription.innerHTML = shoppingCart[product].Description;
+            cellPrice.innerHTML = shoppingCart[product].Price;
+            cart_total_price+=shoppingCart[product].Price;
+        }
+      
+        document.getElementById("cart_total").innerHTML=cart_total_price;
+    }
+
+
+    function AddtoCart(name,description,price){
+       
+       var singleProduct = {};
+       
+       singleProduct.Name=name;
+       singleProduct.Description=description;
+       singleProduct.Price=price;
+        
+       shoppingCart.push(singleProduct);
+      
+       displayShoppingCart();
+
+    }  
+
+
+  
+
+
+</script>
+</head>
+<style>
+
+table{
+background-color:#FFC300;
+}
+
+</style>
+
+<body>
+
+<table align=center cellpadding="100" cellspacing="100" border="2">
+    <tr>
+        <td valign="top">
+            <table cellpadding="10" cellspacing="10" border="0">
+                <thead>
+                    <tr>
+                        <td colspan="2" >
+                            <h1>Products for sale</h1>
+                        </td>
+                    </tr>
+               
+                    <tr>
+                        <td>
+<b>
+                            Mobile
+</b>
+                        </td>
+                        <td>
+                        <img src="mob1.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob1',500)"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+<b>
+                            Mobile
+</b>
+                        </td>
+                        <td>
+                            <img src="mob2.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob2',700)"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+<b>
+                           Mobile
+</b>
+                        </td>
+                        <td>
+                            <img src="mob3.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob3',650)"/>
+                        </td>
+                    </tr>
+
+<tr>
+                        <td>
+<b>
+                            Jeans
+</b>
+                        </td>
+                        <td>
+                        <img src="mob4.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob4',1500)"/>
+                        </td>
+                    </tr>
+<tr>
+                        <td>
+<b>
+                            Jeans
+</b>
+                        </td>
+                        <td>
+                        <img src="mob5.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob5',550)"/>
+                        </td>
+                    </tr>
+<tr>
+                        <td>
+<b>
+                            Jeans
+</b>
+                        </td>
+                        <td>
+                        <img src="mob6.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob6',1200)"/>
+                        </td>
+                    </tr>
+<tr>
+                        <td>
+<b>
+                            Jeans
+</b>
+                        </td>
+                        <td>
+                        <img src="mob7.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob7',1000)"/>
+                        </td>
+                    </tr>
+
+<tr>
+                        <td>
+<b>
+                            Jeans
+</b>
+                        </td>
+                        <td>
+                        <img src="mob8.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob8',500)"/>
+                        </td>
+                    </tr>
+<tr>
+                        <td>
+<b>
+                            Jeans
+</b>
+                        </td>
+                        <td>
+                        <img src="mob9.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob9',500)"/>
+                        </td>
+                    </tr>
+<tr>
+                        <td>
+<b>
+                            Jeans
+</b>
+                        </td>
+                        <td>
+                        <img src="mob10.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('mob','mob10',500)"/>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </td>
+        <td valign="top">
+            <table cellpadding="4" cellspacing="4" border="1" id="orderedProductsTbl">
+                <thead>
+                    <tr>
+                        <td><b>
+                            Name
+</b>
+                        </td>
+                        <td><b>
+                            Description
+</b>
+                        </td>
+                        <td><b>
+                            Price
+</b>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="orderedProductsTblBody">
+
+                </tbody>
+                <tfoot>
+                    <tr>
+<td align="right" colspan="2"><b>Total:</b></td>
+                        <td align="right" id="cart_total">
+
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

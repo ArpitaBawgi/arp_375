@@ -1,0 +1,261 @@
+<!Doctype>
+<html>
+    <title>Mens Clothing</title>
+<head>
+<script type="text/javascript">
+var shoppingCart = [];
+
+    //this function manipulates DOM and displays content of our shopping cart
+    function displayShoppingCart(){
+        var orderedProductsTblBody=document.getElementById("orderedProductsTblBody");
+        //ensure we delete all previously added rows from ordered products table
+        while(orderedProductsTblBody.rows.length>0) {
+            orderedProductsTblBody.deleteRow(0);
+        }
+
+        //variable to hold total price of shopping cart
+        var cart_total_price=0;
+        //iterate over array of objects
+        for(var product in shoppingCart){
+            //add new row      
+            var row=orderedProductsTblBody.insertRow();
+            //create three cells for product properties 
+            var cellName = row.insertCell(0);
+            var cellDescription = row.insertCell(1);
+            var cellPrice = row.insertCell(2);
+            cellPrice.align="right";
+            //fill cells with values from current product object of our array
+            cellName.innerHTML = shoppingCart[product].Name;
+            cellDescription.innerHTML = shoppingCart[product].Description;
+            cellPrice.innerHTML = shoppingCart[product].Price;
+            cart_total_price+=shoppingCart[product].Price;
+        }
+        //fill total cost of our shopping cart 
+        document.getElementById("cart_total").innerHTML=cart_total_price;
+    }
+
+
+    function AddtoCart(name,description,price){
+       //Below we create JavaScript Object that will hold three properties you have mentioned:    Name,Description and Price
+       var singleProduct = {};
+       //Fill the product object with data
+       singleProduct.Name=name;
+       singleProduct.Description=description;
+       singleProduct.Price=price;
+       //Add newly created product to our shopping cart 
+       shoppingCart.push(singleProduct);
+       //call display function to show on screen
+       displayShoppingCart();
+
+    }  
+
+
+  
+
+
+</script>
+</head>
+    <style>
+    .header{
+        font-family: 'Lucida Sans';
+        color: darkred;
+        font-size: 50px;
+    }
+
+    .table{
+        max-height: 60%;
+        max-width: 80%;
+    }
+
+    .td{
+text-align: center;
+    }
+
+.Clothing{
+    padding: 15px;
+  text-align: center;
+}
+
+body{
+    background-color:lightblue;
+}
+
+
+    </style>
+<header><center><h1>
+        Mens Clothing  
+</h1>  </center>
+</header>
+
+<body>
+    <div class="Clothing">
+
+<table border="1" align="center" >
+
+<tr>
+    <td >
+  <a href="cart.html"><img src="1.jpg" width="400" height="400">
+   </a> 
+
+</td>
+   
+    <td> <a href="cart.html"><img src="j1.jpg" width="400" height="400"></a></td>
+
+</tr>
+<tr>
+    <td><center>
+        Cost:Rs.1000
+    <input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+    </center></td>
+   
+            <td><center>
+                Cost:Rs.1250
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+            </center></td>
+    
+</tr>
+
+<tr>
+        <td>
+                <a href="cart.html">    <img src="j2.jpg" width="400" height="400"></a>
+        </td>
+        <td><a href="cart.html"><img src="s3.jpg" width="400" height="400"></a></td>
+    </tr>
+    <tr>
+            <td><center>
+                Cost:Rs.700
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+            </center></td>
+           
+                    <td><center>
+                        Cost:Rs.670
+                    </center></td>
+            
+        </tr>
+        
+    <tr>
+            <td><a href="cart.html">
+                <img src="s1.jpg" width="400" height="400"></a>
+            </td>
+            <td><a href="cart.html"><img src="s8.jpg" width="400" height="400"></a></td>
+        </tr>
+        <tr>
+                <td><center>
+                    Cost:Rs.1799
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                </center></td>
+               
+                        <td><center>
+                            Cost:Rs.499
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                        </center></td>
+                
+            </tr>
+            
+
+        <tr>
+                <td><a href="cart.html">
+                    <img src="j3.jpg" width="400" height="400"></a>
+                </td>
+                <td><a href="cart.html"><img src="j4.jpg" width="400" height="400"></a></td>
+            </tr>
+            <tr>
+                    <td><center>
+                        Cost:Rs.1999
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                    </center></td>
+                   
+                            <td><center>
+                                Cost:Rs.1299
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                            </center></td>
+                    
+                </tr>
+                
+            <tr>
+                    <td><a href="cart.html">
+                        <img src="s9.jpg" width="400" height="400"></a>
+                    </td>
+                    <td><a href="cart.html"><img src="s10.jpg" width="400" height="400"></a></td>
+                </tr>
+                <tr>
+                        <td><center>
+                            Cost:Rs.399
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                        </center></td>
+                       
+                                <td><center>
+                                    Cost:Rs.399
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                                </center></td>
+                        
+                    </tr>
+                    
+                <tr>
+                        <td><a href="cart.html">
+                            <img src="j5.jpg" width="400" height="400"></a>
+                        </td>
+                        <td><a href="cart.html"><img src="j6.jpg" width="400" height="400"></a></td>
+                    </tr>
+
+                    <tr>
+                            <td><center>
+                                Cost:Rs.1000
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                            </center></td>
+                           
+                                    <td><center>
+                                        Cost:Rs.1167
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                                    </center></td>
+                            
+                        </tr>
+                       
+                            
+                    <tr>
+                            <td><a href="cart.html">
+                                <img src="s6.jpeg" width="400" height="400"></a>
+                            </td>
+                            <td><a href="cart.html"><img src="s2.jpg" width="400" height="400"></a></td>
+                        </tr>
+                        <tr>
+                                <td><center>
+                                    Cost:Rs.999
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                                </center></td>
+                               
+                                        <td><center>
+                                            Cost:Rs.999
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                                        </center></td>
+                                
+                            </tr>
+                            
+                        <tr>
+                                <td><a href="cart.html">
+                                    <img src="s7.jpg" width="400" height="400"></a>
+                                </td>
+                                <td><a href="cart.html"><img src="s11.jpg" width="400" height="400"></a></td>
+                            </tr>
+                            <tr>
+                                    <td><center>
+                                        Cost:Rs.1999
+<input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                                    </center></td>
+                                   
+                                            <td><center>
+                                                Cost:Rs.2100
+
+ <input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',2000)"/>                                          
+ </center></td>
+                                    
+            </tr>
+                                
+                        
+</table>
+
+</body>
+
+
+
+</html>

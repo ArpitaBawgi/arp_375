@@ -1,0 +1,148 @@
+ <html>
+<head>
+ <script type="text/javascript">
+var shoppingCart = [];
+
+    //this function manipulates DOM and displays content of our shopping cart
+    function displayShoppingCart(){
+        var orderedProductsTblBody=document.getElementById("orderedProductsTblBody");
+        //ensure we delete all previously added rows from ordered products table
+        while(orderedProductsTblBody.rows.length>0) {
+            orderedProductsTblBody.deleteRow(0);
+        }
+
+        //variable to hold total price of shopping cart
+        var cart_total_price=0;
+        //iterate over array of objects
+        for(var product in shoppingCart){
+            //add new row      
+            var row=orderedProductsTblBody.insertRow();
+            //create three cells for product properties 
+            var cellName = row.insertCell(0);
+            var cellDescription = row.insertCell(1);
+            var cellPrice = row.insertCell(2);
+            cellPrice.align="right";
+            //fill cells with values from current product object of our array
+            cellName.innerHTML = shoppingCart[product].Name;
+            cellDescription.innerHTML = shoppingCart[product].Description;
+            cellPrice.innerHTML = shoppingCart[product].Price;
+            cart_total_price+=shoppingCart[product].Price;
+        }
+        //fill total cost of our shopping cart 
+        document.getElementById("cart_total").innerHTML=cart_total_price;
+    }
+
+
+    function AddtoCart(name,description,price){
+       //Below we create JavaScript Object that will hold three properties you have mentioned:    Name,Description and Price
+       var singleProduct = {};
+       //Fill the product object with data
+       singleProduct.Name=name;
+       singleProduct.Description=description;
+       singleProduct.Price=price;
+       //Add newly created product to our shopping cart 
+       shoppingCart.push(singleProduct);
+       //call display function to show on screen
+       displayShoppingCart();
+
+    }  
+
+
+  
+
+
+</script>
+</head>
+<style>
+
+table{
+background-color:#FFC300;
+}
+
+</style>
+
+<body>
+
+<table align=center cellpadding="80" cellspacing="90" border="2">
+    <tr>
+        <td valign="top">
+            <table cellpadding="10" cellspacing="10" border="0">
+                <thead>
+                    <tr>
+                        <td colspan="2" >
+                            <h1>Products for sale</h1>
+                        </td>
+                    </tr>
+               
+                    <tr>
+                        <td>
+<b>
+                            Jeans
+</b>
+                        </td>
+                        <td>
+                        <img src="jeans1.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans1',500)"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+<b>
+                            Jeans
+</b>
+                        </td>
+                        <td>
+                            <img src="jeans2.jpg" alt="Smiley face" height="80" width="80">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans2',700)"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+<b>
+                           Jeans
+</b>
+                        </td>
+                        <td>
+                            <img src="jeans3.jpg" alt="Smiley face" height="100" width="100">
+                            <input type="button" value="Add to cart" onclick="AddtoCart('jeans','jeans3',650)"/>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </td>
+        <td valign="top">
+            <table cellpadding="4" cellspacing="4" border="1" id="orderedProductsTbl">
+                <thead>
+                    <tr>
+                        <td><b>
+                            Name
+</b>
+                        </td>
+                        <td><b>
+                            Description
+</b>
+                        </td>
+                        <td><b>
+                            Price
+</b>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody id="orderedProductsTblBody">
+
+                </tbody>
+                <tfoot>
+                    <tr>
+<td align="right" colspan="2"><b>Total:</b></td>
+                        <td align="right" id="cart_total">
+
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
